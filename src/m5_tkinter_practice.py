@@ -54,7 +54,7 @@ def main():
     button2.grid()
     button2['command'] = lambda: say_gurney(enter_box)
     # -------------------------------------------------------------------------
-    # TODO: 7.
+    # DONE: 7.
     #    -- Put a second Entry on the Frame.
     #    -- Put a third Button on the frame.
     #    -- Make this new Button respond to a button-press as follows:
@@ -78,7 +78,9 @@ def main():
     ####################################################################
     enter_box2 = ttk.Entry(frame1)
     enter_box2.grid()
-    button3 = ttk.Button(frame1, t)
+    button3 = ttk.Button(frame1, text='Print Many Time')
+    button3.grid()
+    button3['command'] = lambda: print_many_times(enter_box, enter_box2)
     # -------------------------------------------------------------------------
     # TODO: 8. As time permits, do other interesting GUI things!
     # -------------------------------------------------------------------------
@@ -91,6 +93,13 @@ def say_hi():
 def say_gurney(enter_box):
     gurney = enter_box.get()
     print(gurney)
+
+def print_many_times(entry, number):
+    n = int(number.get())
+    string = entry.get()
+    for k in range(n):
+        print(string)
+
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
